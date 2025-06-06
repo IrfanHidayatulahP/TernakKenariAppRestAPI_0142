@@ -1,4 +1,4 @@
-import 'package:canary_template/auth/bloc/register/register_bloc.dart';
+import 'package:canary_template/presentation/auth/bloc/register/register_bloc.dart';
 import 'package:canary_template/core/components/components.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:canary_template/core/constants/colors.dart';
@@ -7,6 +7,7 @@ import 'package:canary_template/data/model/request/auth/registerRequestModel.dar
 import 'package:canary_template/views/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
