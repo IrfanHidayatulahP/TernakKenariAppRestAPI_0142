@@ -1,5 +1,6 @@
 import 'package:canary_template/core/core.dart';
 import 'package:canary_template/data/model/response/buyer/buyer_profile_response_model.dart';
+import 'package:canary_template/presentation/buyer/Home/buyer_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileViewBuyer extends StatelessWidget {
