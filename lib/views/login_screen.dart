@@ -1,9 +1,11 @@
-import 'package:canary_template/auth/bloc/login/login_bloc.dart';
+import 'package:canary_template/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:canary_template/core/components/spaces.dart';
 import 'package:canary_template/core/core.dart';
 import 'package:canary_template/data/model/request/auth/loginRequestModel.dart';
+import 'package:canary_template/views/register_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -79,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SpaceHeight(30),
               BlocConsumer<LoginBloc, LoginState>(
-                Listener: (context, state) {
+                listener: (context, state) {
                   if (state is LoginFailure) {
                     ScaffoldMessenger.of(
                       context,
