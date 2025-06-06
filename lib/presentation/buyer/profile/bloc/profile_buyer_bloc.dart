@@ -39,7 +39,7 @@ class ProfileBuyerBloc extends Bloc<ProfileBuyerEvent, ProfileBuyerState> {
 
     result.fold(
       (error) => emit(ProfileBuyerError(error)),
-      (profile) => emit(ProfileBuyerLoaded(profile as BuyerProfileRequestModel)),
+      (profile) => emit(ProfileBuyerLoaded(profile)),
     );
   }
 }
