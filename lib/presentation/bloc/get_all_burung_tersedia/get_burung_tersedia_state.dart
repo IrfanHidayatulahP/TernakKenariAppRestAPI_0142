@@ -1,4 +1,4 @@
-part of 'get_all_burung_bloc.dart';
+part of 'get_burung_tersedia_bloc.dart';
 
 sealed class GetBurungTersediaState {}
 
