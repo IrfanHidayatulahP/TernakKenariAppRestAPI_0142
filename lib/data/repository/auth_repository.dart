@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:canary_template/data/model/request/auth/loginRequestModel.dart';
 import 'package:canary_template/data/model/request/auth/registerRequestModel.dart';
-import 'package:canary_template/data/model/response/loginResponseModel.dart';
+import 'package:canary_template/data/model/response/auth_response_model.dart';
 import 'package:canary_template/services/service_http_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dartz/dartz.dart';
@@ -13,7 +13,7 @@ class AuthRepository {
 
   AuthRepository(this._servicehttpClient);
 
-  Future<Either<String, LoginResponseModel>> login(LoginRequestModel requestModel) async {
+  Future<Either<String, AuthResponseModel>> login(LoginRequestModel requestModel) async {
     try {
       final response = await _servicehttpClient.post(
         "Login",
@@ -21,14 +21,14 @@ class AuthRepository {
       );
       final jsonResponse = json.decode(response.body);
       if (response.statusCode == 200) {
-        final loginResponse = LoginResponseModel.fromMap(jsonResponse);
+        final loginResponse = AuthResponseModel.fromMap(jsonResponse);
         await secureStorage.write(
           key: "AuthToken",
-          value: loginResponse.data!.token,
+          value: loginResponse.user?.token,
         );
         await secureStorage.write(
           key: "UserId",
-          value: loginResponse.data!.role,
+          value: loginResponse.user?.id.toString(),
         );
         return Right(loginResponse);
       } else {
