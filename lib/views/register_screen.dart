@@ -101,7 +101,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           },
                           icon: Icon(
                             isShowPassword ? Icons.visibility : Icons.visibility_off,
-                            color: Colors.grey,
+                            color: AppColors.grey,
                           ),
                         ),
                       ),
@@ -141,6 +141,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   username: namaController.text,
                                   email: emailController.text,
                                   password: passwordController.text,
+                                  roleId: 2,
                                 );
                                 context.read<RegisterBloc>().add(
                                   RegisterRequested(requestModel: request),
