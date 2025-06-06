@@ -1,4 +1,5 @@
 import 'package:canary_template/presentation/buyer/profile/bloc/profile_buyer_bloc.dart';
+import 'package:canary_template/presentation/buyer/profile/widget/profile_view_buyer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,10 +40,12 @@ class _BuyerProfileScreenState extends State<BuyerProfileScreen> {
               );
             }
 
-            if (state is ProfileBuyerLoaded && 
+            if (state is ProfileBuyerLoaded &&
                 state.profile.data.name.isNotEmpty) {
                   final profile = state.profile.data;
-                  return ProfileViewBuyer(profile: profile);
+                  return ProfileViewBuyer(
+                    profile: profile,
+                  );
                 }
 
             return ProfileBuyerInputForm();
